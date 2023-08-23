@@ -11,7 +11,7 @@ Hello, I'm Jordan, the owner of this blog
 Cool planes
 
 ![Alt text](images/7160334.jpg)
-
+![Alt text](images/FluidTightAngelwingmussel-max-1mb.gif)
 
 Jordan's daily updates
 
