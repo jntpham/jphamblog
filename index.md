@@ -8,7 +8,9 @@ title: Student Blog
 Hello, I'm Jordan, the owner of this blog
 ![Alt text](<images/Blog pic.png>)
 
+Cool planes
 
+![Alt text](images/7160334.jpg)
 
 
 Jordan's daily updates
@@ -20,15 +22,6 @@ Still have to iron out issues with the designs of the webpage and installing the
 8/24/23
 Created an introduction section within the home page
 Experimenting with different themes
-
-
-
-
-
-
-
-
-
 
 ## Overview of Hacks, Study and Tangibles
 Blogging in GitHub pages is a way to learn and code at the same time. 
