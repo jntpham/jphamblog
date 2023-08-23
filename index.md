@@ -5,6 +5,12 @@ title: Student Blog
 
 
 ## Build you Home Page here 
+Hello, I'm Jordan, the owner of this blog
+![Alt text](<images/Blog pic.png>)
+
+
+Jordan's daily updates
+
 8/23/23
 Finally got the blog up and connected with github
 Still have to iron out issues with the designs of the webpage or installing the rest of the CS pages
