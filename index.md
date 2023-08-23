@@ -5,6 +5,12 @@ title: Student Blog
 
 
 ## Build you Home Page here 
+8/23/23
+Finally got the blog up and connected with github
+Still have to iron out issues with the designs of the webpage or installing the rest of the CS pages
+
+
+
 This is a work in progress, please come back later
 ## Overview of Hacks, Study and Tangibles
 Blogging in GitHub pages is a way to learn and code at the same time. 
