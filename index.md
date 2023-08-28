@@ -15,22 +15,10 @@ Cool planes
 ![Alt text](images/FluidTightAngelwingmussel-max-1mb.gif)
 
 
-## Video
+## Future Video
 
 
-## Main body text for updates
-Jordan's daily updates
 
-8/23/23
-Finally got the blog up and connected with github
-Still have to iron out issues with the designs of the webpage and installing the rest of the CS pages
-
-8/24/23
-Created an introduction section within the home page
-Experimenting with different themes
-
-8/25/23
-Problems with the theme, working on getting the page formats woking properly
 
 ## Overview of Hacks, Study and Tangibles
 Blogging in GitHub pages is a way to learn and code at the same time. 
