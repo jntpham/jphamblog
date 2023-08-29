@@ -6,7 +6,7 @@ title: Classic Snake Game
 description: xxx
 type: plans
 courses: {csp: {week: 2, categories: [4.A]}}
-categories: [C1.4]
+
 ---
 
 <style>
