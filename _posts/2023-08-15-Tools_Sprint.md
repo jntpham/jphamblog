@@ -5,7 +5,7 @@ layout: post
 title: Fake Tools Setup
 description: Become one with your tools.  They could be more important than code, code, coding.
 type: plans
-courses: { csp: {week: 2, categories: [4.A]},  }
+courses: { csp: {week: 1, categories: [4.A]}  }
 categories: [C1.4]
 ---
 <!-- 
