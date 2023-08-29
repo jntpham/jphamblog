@@ -4,7 +4,7 @@ title: Student Blog
 ---
 
 
-## Build you Home Page here 
+
 Hello, I'm Jordan, the owner of this blog
 ![Alt text](<images/Blog pic.png>)
 
