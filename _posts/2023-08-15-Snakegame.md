@@ -5,7 +5,7 @@ layout: post
 title: Classic Snake Game
 description: xxx
 type: tangibles
-courses: {csp: {week: 2, categories: [6.A]}}
+courses: {csp: {week: 2, categories: [5.A]}}
 
 ---
 
