@@ -4,8 +4,8 @@ comments: false
 layout: post
 title: Classic Snake Game
 description: xxx
-type: plans
-courses: {csp: {week: 2, categories: [4.A]}}
+type: tangibles
+courses: {csp: {week: 2, categories: [6.A]}}
 
 ---
 
