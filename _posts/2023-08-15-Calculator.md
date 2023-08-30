@@ -4,7 +4,7 @@ comments: false
 layout: post
 title: Calculator
 description: Become one with calculator, the calculator is your friend
-type: tangibles
+type: hacks
 courses: {csp: {week: 2, categories: [4.A]}}
 ---
 <!-- 
