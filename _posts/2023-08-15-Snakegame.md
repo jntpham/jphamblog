@@ -2,8 +2,8 @@
 toc: true
 comments: false
 layout: post
-title: Classic Snake Game
-description: xxx
+title: Game of Life
+description: The game of life
 type: tangibles
 courses: {csp: {week: 2, categories: [5.A]}}
 
