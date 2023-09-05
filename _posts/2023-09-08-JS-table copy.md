@@ -2,8 +2,8 @@
 toc: true
 comments: true
 layout: post
-title: Planes at MCAS
-description: ChatGPT and peer review comments go here
+title: Planes used by the US military
+description: Exhaustive List of US Aircraft
 courses: { csp: {week: 3} }
 type: tangibles
 ---
@@ -21,7 +21,8 @@ type: tangibles
 <body>
     <table id="md_demo" class="table">
 <h1>Imported Wikipedia Table<h1>
-<table class="wikitable sortable" style="border-collapse:collapse;text-align:center;margin:auto;">
+
+<table
 
 <tbody><tr>
 <th>Aircraft
