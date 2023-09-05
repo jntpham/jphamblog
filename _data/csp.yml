@@ -4,3 +4,13 @@ Unit1:
   description: This is site is actively being converted into a lab notebook library
   start: 0
   end: 3
+Unit2:
+  title: Learn Language
+  description: Learn (JavaScript|Python|Java).  Start Agile development process.
+  start: 4
+  end: 7
+Unit3:
+  title: Learn Language
+  description: Learn (JavaScript|Python|Java).  Start Agile development process.
+  start: 8
+  end: 11
