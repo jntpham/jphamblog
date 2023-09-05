@@ -22,7 +22,7 @@ type: tangibles
     <table id="md_demo" class="table">
 <h1>Imported Wikipedia Table<h1>
 
-<table
+<table class="wikitable sortable" style="border-collapse:collapse;text-align:center;margin:auto;">
 
 <tbody><tr>
 <th>Aircraft
