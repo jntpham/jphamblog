@@ -2,7 +2,7 @@
 toc: true
 comments: false
 layout: post
-title: Sample Python Quiz
+title: HTML Python Quiz
 description: Test your knowledge on stuff
 type: tangibles
 courses: {csp: {week: 2, categories: [5.A]}}
