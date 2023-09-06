@@ -18,11 +18,7 @@ type: tangibles
 </head>
 
 <!-- Body contains the contents of the Document -->
-<body>
-    <table id="md_demo" class="table">
-<h1>Imported Wikipedia Table<h1>
 
-<table class="wikitable sortable" style="border-collapse:collapse;text-align:center;margin:auto;">
 
 <tbody><tr>
 <th>Aircraft
