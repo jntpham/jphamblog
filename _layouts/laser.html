@@ -1,0 +1,85 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Laser Color Input</title>
+  <style>
+    #ray-gun-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #ray-gun {
+      font-size: 40px;
+      font-weight: bold;
+      display: inline-block;
+      padding: 10px;
+      border: 2px solid black;
+      margin-right: 10px;
+    }
+
+    #color-box {
+      height: 50px;
+      width: 200px;
+      display: inline-block;
+      border: 2px solid black;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Laser Color Input</h1>
+  <label for="binary1">Binary 1:</label>
+  <input type="text" id="binary1" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <label for="binary2">Binary 2:</label>
+  <input type="text" id="binary2" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <label for="binary3">Binary 3:</label>
+  <input type="text" id="binary3" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <button onclick="convertAndDisplay()">Convert and Display</button>
+  <div id="result">
+    <p>Binary 1: <span id="bin1"></span></p>
+    <p>Binary 2: <span id="bin2"></span></p>
+    <p>Binary 3: <span id="bin3"></span></p>
+    <p>Decimal Values:</p>
+    <p>RGB: <span id="rgbValues"></span></p>
+  </div>
+  <div id="ray-gun-container">
+    <div id="ray-gun">Ray Gun</div>
+    <div id="color-box"></div>
+    <div>Character</div>
+  </div>
+
+  <script>
+    function convertAndDisplay() {
+      const binary1 = document.getElementById('binary1').value;
+      const binary2 = document.getElementById('binary2').value;
+      const binary3 = document.getElementById('binary3').value;
+
+      // Convert binary to decimal
+      const decimal1 = parseInt(binary1, 2);
+      const decimal2 = parseInt(binary2, 2);
+      const decimal3 = parseInt(binary3, 2);
+
+      // Display binary and decimal values
+      document.getElementById('bin1').innerText = binary1;
+      document.getElementById('bin2').innerText = binary2;
+      document.getElementById('bin3').innerText = binary3;
+      document.getElementById('rgbValues').innerText = `RGB(${decimal1}, ${decimal2}, ${decimal3})`;
+
+      // Set RGB color to the color-box div
+      const colorBox = document.getElementById('color-box');
+      colorBox.style.backgroundColor = `rgb(${decimal1}, ${decimal2}, ${decimal3})`;
+    }
+  </script>
+</body>
+</html>
+
