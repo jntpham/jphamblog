@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Combined Laser Color Input & Binary Number Guesser</title>
+  <style>
+    /* Styles for Laser Color Input */
+    #ray-gun-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #ray-gun {
+      width: 100px;
+      height: 100px;
+      background: url('https://cdn.dribbble.com/users/1162077/screenshots/3754974/media/62381f1e5a92f69c0ba1565022ccb878.png?resize=400x300&vertical=center') no-repeat center center;
+      background-size: cover;
+      cursor: pointer;
+    }
+
+    #color-box {
+      height: 50px;
+      width: 200px;
+      display: inline-block;
+      border: 2px solid black;
+      margin-right: 10px;
+      transition: background-color 2s linear;
+    }
+
+    /* Styles for Binary Number Guesser */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-repeat: no-repeat;
+      background-image: url('https://fiu-original.b-cdn.net/fontsinuse.com/use-images/122/122013/122013.png?filename=Captura%20de%20VLC_2020-09-26-20h46m09s582.png');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .character {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 20px;
+      transition: transform 0.7s ease;
+      display: inline-block;
+      background-size: cover;
+    }
+
+    #doofenshmirtz {
+      background-image: url('https://upload.wikimedia.org/wikipedia/en/e/eb/Heinz_Doofenshmirtz.png');
+    }
+
+    #perry {
+      background-image: url('https://upload.wikimedia.org/wikipedia/en/d/dc/Perry_the_Platypus.png');
+    }
+
+    @keyframes kickAnimation {
+      0% {
+        transform: translateX(-50%) rotate(0deg);
+      }
+
+      10% {
+        transform: translateX(-75%) rotate(180deg);
+      }
+
+      30% {
+        transform: translateX(-100%) translateY(-100%) rotate(360deg);
+      }
+
+      50% {
+        transform: translateX(-25%) translateY(50%);
+      }
+
+      100% {
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+
+    .speech-bubble {
+      position: absolute;
+      bottom: 150%;
+      left: -120%;
+      padding: 8px 12px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .character.speaking .speech-bubble {
+      bottom: 100%;
+      opacity: 1;
+      left: -80%;
+    }
+
+    .game-box {
+      width: 60%;
+      margin: 20px auto;
+      border: 3px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    input[type="text"],
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    input[type="text"] {
+      width: calc(100% - 120px);
+    }
+
+    button {
+      cursor: pointer;
+      background-color: #333;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    #result,
+    .hint,
+    #attemptsLeft {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .health-bar {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .health-fill {
+      height: 20px;
+      background-color: green;
+      transition: width 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Laser Color Input</h1>
+  <label for="binary1">Binary 1:</label>
+  <input type="text" id="binary1" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <label for="binary2">Binary 2:</label>
+  <input type="text" id="binary2" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <label for="binary3">Binary 3:</label>
+  <input type="text" id="binary3" maxlength="8" placeholder="Enter binary number">
+  <br>
+  <button onclick="convertAndDisplay()">Convert and Display</button>
+  <div id="result">
+    <p>Binary 1: <span id="bin1"></span></p>
+    <p>Binary 2: <span id="bin2"></span></p>
+    <p>Binary 3: <span id="bin3"></span></p>
+    <p>Decimal Values:</p>
+    <p>RGB: <span id="rgbValues"></span></p>
+  </div>
+  <div id="ray-gun-container">
+    <div class="game-box">
+      <h1>Binary Number Guesser</h1>
+      <p>Try to guess the binary number (between 0 and 256):</p>
+      <input type="text" id="userGuess" placeholder="Enter binary number">
+      <button onclick="checkGuess()">Check</button>
+      <button onclick="resetGame()">Try Again</button>
+      <p id="guesserResult"></p>
+      <p>Attempts Left: <span id="attemptsLeft">30</span></p>
+      <p class="hint" id="hintText">Hint: The number is between 0 and 256 in binary.</p>
+      <div class="character" id="doofenshmirtz">
+        <div class="speech-bubble" id="doofSpeech">Placeholder Text</div>
+      </div>
+      <div class="character" id="perry"></div>
+      <div class="health-bar">
+        <div id="doofHealthBar" class="health-fill"></div>
+        <label for="doofHealthBar">Dr. Doofenshmirtz Health</label>
+      </div>
+      <div class="health-bar">
+        <div id="perryHealthBar" class="health-fill"></div>
+        <label for="perryHealthBar">Perry Score</label>
+      </div>
+    </div>
+    <div id="ray-gun" onclick="changeRayGunColor()"></div>
+    <div id="color-box"></div>
+  </div>
+
+  <script>
+    function convertAndDisplay() {
+      const binary1 = document.getElementById('binary1').value;
+      const binary2 = document.getElementById('binary2').value;
+      const binary3 = document.getElementById('binary3').value;
+
+      const decimal1 = parseInt(binary1, 2);
+      const decimal2 = parseInt(binary2, 2);
+      const decimal3 = parseInt(binary3, 2);
+
+      const roundedColors = [
+        { color: [255, 0, 0], effect: 'doof' },    // Red
+        { color: [0, 0, 0], effect: 'perry' },     // Black
+        { color: [128, 0, 128], effect: 'none' },  // Purple
+        { color: [0, 0, 255], effect: 'none' },    // Blue
+        { color: [255, 255, 0], effect: 'none' },  // Yellow
+        { color: [0, 128, 0], effect: 'none' }     // Green
+      ];
+
+      function applyColorEffect(effect) {
+        switch (effect) {
+          case 'doof':
+            document.getElementById('doofHealthBar').style.width = '100%';
+            break;
+          case 'perry':
+            document.getElementById('perryHealthBar').style.width = '100%';
+            break;
+          // Add additional cases for other effects if needed
+          default:
+            // Do nothing for colors without a specific effect
+            break;
+        }
+      }
+
+      function roundColor(color) {
+        let minDistance = Number.MAX_VALUE;
+        let closestColor = null;
+
+        roundedColors.forEach(roundedColor => {
+          const distance = Math.sqrt(
+            Math.pow(color[0] - roundedColor.color[0], 2) +
+            Math.pow(color[1] - roundedColor.color[1], 2) +
+            Math.pow(color[2] - roundedColor.color[2], 2)
+          );
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestColor = roundedColor;
+          }
+        });
+
+        return closestColor;
+      }
+
+      const roundedColor = roundColor([decimal1, decimal2, decimal3]);
+
+      document.getElementById('bin1').innerText = binary1;
+      document.getElementById('bin2').innerText = binary2;
+      document.getElementById('bin3').innerText = binary3;
+      document.getElementById('rgbValues').innerText = `RGB(${decimal1}, ${decimal2}, ${decimal3})`;
+
+      const colorBox = document.getElementById('color-box');
+      colorBox.style.backgroundColor = `rgb(${roundedColor.color[0]}, ${roundedColor.color[1]}, ${roundedColor.color[2]})`;
+
+      // Change ray gun color
+      const rayGun = document.getElementById('ray-gun');
+      rayGun.style.backgroundColor = `rgb(${roundedColor.color[0]}, ${roundedColor.color[1]}, ${roundedColor.color[2]})`;
+
+      // Apply color effect based on the rounded color
+      applyColorEffect(roundedColor.effect);
+    }
+
+    function changeRayGunColor() {
+      // You can add additional logic here if needed
+      // For now, this function simply triggers the color change with convertAndDisplay
+      convertAndDisplay();
+    }
+
+    let score = 0.0;
+    let attempts = 30;
+    let currentRandomNumber = Math.floor(Math.random() * 256).toString(2);
+
+    const doofPhrases = [
+      "Ouch! Perry, why?",
+      "This wasn't in my -inator's plans!",
+      "Behold, my latest -inator!",
+      "Curse you, Perry the Platypus!",
+      "I knew this wouldn't end well!",
+      "Why do these things always happen to me?"
+    ];
+
+    function getRandomPhrase() {
+      return doofPhrases[Math.floor(Math.random() * doofPhrases.length)];
+    }
+
+    function updateHealthBars() {
+      const doofHealth = (attempts / 30) * 100;
+      const perryHealth = (score / 100) * 100;
+
+      document.getElementById('doofHealthBar').style.width = doofHealth + '%';
+      document.getElementById('perryHealthBar').style.width = perryHealth + '%';
+    }
+
+    function checkGuess() {
+      const userGuess = document.getElementById('userGuess').value.trim();
+
+      const doofSpeechBubble = document.getElementById('doofSpeech');
+      doofSpeechBubble.innerText = getRandomPhrase();
+
+      if (attempts <= 0) {
+        document.getElementById('guesserResult').innerHTML = "Out of attempts! Try again.";
+        return;
+      }
+
+      if (userGuess === currentRandomNumber) {
+        document.getElementById('guesserResult').innerHTML = "Congratulations! Perry the Platypus is free, and the number was correct. Dr. Doofenshmirtz gets kicked by Perry.";
+        document.getElementById('doofenshmirtz').classList.add('speaking');
+        kickAnimation();
+        attempts = 0;
+      } else {
+        attempts--;
+        score += 3.3333333333333333333;
+        document.getElementById('attemptsLeft').innerText = attempts;
+        document.getElementById('guesserResult').innerHTML = "Sorry, wrong guess! " + attempts + " tries left.";
+        if (attempts <= 0) {
+          document.getElementById('perry').style.transform = 'translateY(100px)';
+        } else {
+          document.getElementById('perry').style.transform = 'none';
+        }
+        updateHealthBars();
+
+        const parsedUserGuess = parseInt(userGuess, 2);
+        const parsedRandomNumber = parseInt(currentRandomNumber, 2);
+
+        if (parsedUserGuess > parsedRandomNumber) {
+          document.getElementById('hintText').innerHTML = "Hint: Try a lower number.";
+        } else if (parsedUserGuess < parsedRandomNumber) {
+          document.getElementById('hintText').innerHTML = "Hint: Try a higher number.";
+        }
+      }
+      doofSpeechBubble.style.opacity = 1;
+      setTimeout(() => {
+        doofSpeechBubble.style.opacity = 0;
+      }, 3000);
+    }
+
+    function resetGame() {
+      attempts = 30;
+      score = 0;
+      document.getElementById('guesserResult').innerHTML = "";
+      document.getElementById('doofenshmirtz').classList.remove('speaking');
+      document.getElementById('perry').style.transform = 'none';
+      document.getElementById('hintText').innerHTML = "Hint: The number is between 0 and 1023 in binary.";
+      currentRandomNumber = Math.floor(Math.random() * 256).toString(2);
+      document.getElementById('userGuess').value = "";
+      document.getElementById('attemptsLeft').innerText = attempts;
+      updateHealthBars();
+    }
+
+    function kickAnimation() {
+      document.getElementById('perry').style.transform = 'translateX(200px)';
+      setTimeout(() => {
+        document.getElementById('perry').style.transform = 'none';
+      }, 500);
+    }
+
+    updateHealthBars();
+  </script>
+</body>
+
+</html>
