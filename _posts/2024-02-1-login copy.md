@@ -38,6 +38,7 @@ courses: { csp: {week: 17} }
           body: raw,
           redirect: 'follow'
         };
+      const apiUrl = "http://127.0.0.1:8097/api/users/authenticate";
       fetch("http://127.0.0.1:8086/api/users/authenticate", requestOptions)
           .then(response => {
             if (response.ok) {
