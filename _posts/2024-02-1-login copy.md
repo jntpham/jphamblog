@@ -38,7 +38,7 @@ courses: { csp: {week: 17} }
           body: raw,
           redirect: 'follow'
         };
-      const apiUrl = "http://127.0.0.1:8097/api/users/authenticate";
+      const apiUrl = "http://127.0.0.1:8086/api/users/authenticate";
       fetch("http://127.0.0.1:8086/api/users/authenticate", requestOptions)
           .then(response => {
             if (response.ok) {
@@ -75,7 +75,7 @@ courses: { csp: {week: 17} }
     </p>
     <p>
      <button class="button-spacing">Log In</button>
-          <button onClick = "window.location.href ='http://127.0.0.1:4200/stunew//2024/02/01/signuppage.html'" class="button-spacing" >Sign Up</button>
+          <button onClick = "window.location.href ='http://localhost:4200/jphamblog//2024/02/01/signup.html'" class="button-spacing" >Sign Up</button>
     </p>
   </form>
   <!-- Your JavaScript code -->
