@@ -3,7 +3,7 @@ toc: true
 comments: false
 layout: post
 title: Image Display
-type: hacks
+type: tangibles
 courses: { csp: {week: 17} }
 ---
 
