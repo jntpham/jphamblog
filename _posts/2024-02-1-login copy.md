@@ -43,7 +43,7 @@ courses: { csp: {week: 17} }
           .then(response => {
             if (response.ok) {
                 console.log("User logged in successfully");
-                window.location.href = "http://localhost:4200/jphamblog//2024/03/20/MCQ3Review_IPYNB_2_.html"
+                window.location.href = "http://localhost:4200/jphamblog//2024/02/01/imageuploader.html"
               } else {
                 console.error("User login failed");
                 // You can handle failed login attempts here
