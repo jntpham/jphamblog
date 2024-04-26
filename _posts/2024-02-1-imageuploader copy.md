@@ -81,7 +81,7 @@ courses: { csp: {week: 18} }
                     nameParagraph.textContent = imageName;
                     // Append the img element to the imageItem div
                     imageItem.appendChild(img);
-                    iamgeItem.appendChild(nameParagraph);
+                    imageItem.appendChild(nameParagraph);
                     // Append the imageItem div to the images-list div
                     imagesList.appendChild(imageItem);
                 };
