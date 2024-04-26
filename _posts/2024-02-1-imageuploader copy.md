@@ -57,7 +57,7 @@ courses: { csp: {week: 18} }
         <button onclick="uploadImage()">Upload Image</button>
     </div>
     <script>
-        // Function to upload an image and display it
+        // Function to upload/display image
         function uploadImage() {
             const fileInput = document.getElementById('image-file');
             const imagesList = document.getElementById('images-list');
@@ -76,8 +76,12 @@ courses: { csp: {week: 18} }
                     const img = document.createElement('img');
                     img.src = imgSrc;
                     img.alt = imageName;
+                    // Create a paragraph element for the image name
+                    const nameParagraph = document.createElement('p');
+                    nameParagraph.textContent = imageName;
                     // Append the img element to the imageItem div
                     imageItem.appendChild(img);
+                    iamgeItem.appendChild(nameParagraph);
                     // Append the imageItem div to the images-list div
                     imagesList.appendChild(imageItem);
                 };
