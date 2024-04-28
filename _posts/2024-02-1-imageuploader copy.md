@@ -58,39 +58,40 @@ courses: { csp: {week: 18} }
     </div>
     <script>
         // Function to upload/display image
-        function uploadImage() {
-            const fileInput = document.getElementById('image-file');
-            const imagesList = document.getElementById('images-list');
-            const imageNameInput = document.getElementById('image-name');
-            // Get the file and its name
-            const file = fileInput.files[0];
-            const imageName = imageNameInput.value || 'Unnamed Image';
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const imgSrc = e.target.result;
-                    // Create a new div element to contain the image and its name
-                    const imageItem = document.createElement('div');
-                    imageItem.className = 'image-item';
-                    // Create an img element and set its src to the base64 image data
-                    const img = document.createElement('img');
-                    img.src = imgSrc;
-                    img.alt = imageName;
-                    // Create a paragraph element for the image name
-                    const nameParagraph = document.createElement('p');
-                    nameParagraph.textContent = imageName;
-                    // Append the img element to the imageItem div
-                    imageItem.appendChild(img);
-                    imageItem.appendChild(nameParagraph);
-                    // Append the imageItem div to the images-list div
-                    imagesList.appendChild(imageItem);
-                };
-                // Read the file as a data URL
-                reader.readAsDataURL(file);
-            } else {
-                alert('Please select an image file to upload.');
-            }
-        }
+function uploadImage() {
+    const fileInput = document.getElementById('image-file');
+    const imagesList = document.getElementById('images-list');
+    const imageNameInput = document.getElementById('image-name');
+    // Get the file and its name
+    const file = fileInput.files[0];
+    const imageName = imageNameInput.value || 'Unnamed Image';
+    if (file) {
+        const reader = new FileReader();
+        // Use addEventListener to add the load event handler
+        reader.addEventListener('load', function(e) {
+            const imgSrc = e.target.result;
+            // Create a new element for the image and the name
+            const imageItem = document.createElement('div');
+            imageItem.className = 'image-item';
+            // Create an img element and set its src to the base64 image data
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.alt = imageName;
+            // Create a paragraph element for customizable user input title
+            const nameParagraph = document.createElement('p');
+            nameParagraph.textContent = imageName;
+            // Append the img element to the imageItem div
+            imageItem.appendChild(img);
+            imageItem.appendChild(nameParagraph);
+            // Append the imageItem div to the images-list div
+            imagesList.appendChild(imageItem);
+        });
+        // Read the file as a data URL
+        reader.readAsDataURL(file);
+    } else {
+        alert('Please select an image file to upload.');
+    }
+}
     </script>
 </body>
 </html>

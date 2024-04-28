@@ -63,6 +63,16 @@ courses: { csp: {week: 17} }
         <button onclick="uploadImage()">Upload Image</button>
     </div>
     <script>
+        function uploadImage() {
+        const fileInput = document.getElementById('image-file');
+            const imagesList = document.getElementById('images-list');
+            const imageNameInput = document.getElementById('image-name');
+            // Get the file and its name
+            const file = fileInput.files[0];
+            const imageName = imageNameInput.value || 'Unnamed Image';    
+        }
+            
+
         const apiBaseUrl = '/api/images';
         // Function to fetch and display images from the API
         async function fetchImages() {
