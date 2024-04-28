@@ -19,7 +19,6 @@ courses: { csp: {week: 18} }
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Viewer and Uploader</title>
     <style>
-        /* Add some styles for the page */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
