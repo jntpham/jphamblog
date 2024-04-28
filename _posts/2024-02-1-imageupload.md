@@ -2,7 +2,7 @@
 toc: true
 comments: false
 layout: post
-title: Image Display Tester
+title: Image Display
 type: tangibles
 courses: { csp: {week: 18} }
 ---
