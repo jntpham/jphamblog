@@ -6,6 +6,8 @@ title: Login
 type: hacks
 courses: { csp: {week: 17} }
 ---
+### THIS CODE WAS MADE IN COLLABRATION WITH CHAT GPT 3.5 AND INSPIRED FROM THE TEACHER PROVIDED SAMPLE: https://github.com/nighthawkcoders/teacher_portfolio/blob/main/_posts/2024-01-08-python-jwt-login.md?plain=1
+
 <html lang="en">
 <head>
 <script>
